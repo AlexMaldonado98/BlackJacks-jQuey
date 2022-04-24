@@ -38,21 +38,24 @@ let valorCarta = (carta) => {
 }
 
 let mostraMensaje = (ganoJugador) => {
-    $('#mensaje').removeAttr('hidden');
-    if(ganoJugador === true){
+     setTimeout(() => {
+        $('#mensaje').removeAttr('hidden');
+        if(ganoJugador === true){
+            
+    
+            $('#mensaje').text('El jugador gano');
+            $('#mensaje').addClass('bg-success');
+            $('#mensaje').removeClass('bg-danger');
+            
+        }else{
+            $('#mensaje').text('La computadora gano');
+            
+            $('#mensaje').removeClass('bg-success');
+            $('#mensaje').addClass('bg-danger');
+    
+        }
         
-
-        $('#mensaje').text('El jugador gano');
-        $('#mensaje').addClass('bg-success');
-        $('#mensaje').removeClass('bg-danger');
-        
-    }else{
-        $('#mensaje').text('La computadora gano');
-        
-        $('#mensaje').removeClass('bg-success');
-        $('#mensaje').addClass('bg-danger');
-
-    }
+    }, 400);
 }
 
 let nuevoJuego = () => {
@@ -102,7 +105,7 @@ let detener = () => {
             mostraMensaje(ganoJugador);
         }
 
-    });
+    },250);
 }
 
 crearBaraja();
